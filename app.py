@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import url_for
-from flask import request
+from flask import request , redirect
 from flask_sqlalchemy import SQLAlchemy
 
 from datetime import datetime
@@ -29,9 +29,20 @@ class Todo(db.Model):
 @app.route("/",methods=["POST","GET"])
 def index():
     if request.method == 'POST':
-        return "Hemlllasdf "
-    else:
-        return render_template("index.html")
+        task_content = request.form["content"]
+        new_task = Todo(content=task_content)
+        
+        try:
+            db.session.add(new_task)
+            db.session.commit()
+            return redirect("/")
+        except:
+            return "There is issue while adding your Task"
+        
+        
+    else:   
+        tasks = Todo.query.order_by(Todo.date_created).all
+        return render_template("index.html",tasks =tasks)
     # return "Hemlo Worldd !!"
     
 
