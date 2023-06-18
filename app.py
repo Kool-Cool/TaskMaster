@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import url_for
+from flask import request
 from flask_sqlalchemy import SQLAlchemy
 
 from datetime import datetime
@@ -25,10 +26,14 @@ class Todo(db.Model):
     
     
 # Index  route
-@app.route("/")
+@app.route("/",methods=["POST","GET"])
 def index():
+    if request.method == 'POST':
+        return "Hemlllasdf "
+    else:
+        return render_template("index.html")
     # return "Hemlo Worldd !!"
-    return render_template("index.html")
+    
 
 
 
