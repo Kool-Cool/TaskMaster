@@ -64,6 +64,10 @@ def update(id):
 def about():
     return render_template("about.html")
 
+@app.route('/connect')
+def connect():
+    return render_template("connect.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True , host='0.0.0.0')
