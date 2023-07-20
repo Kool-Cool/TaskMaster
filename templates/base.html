@@ -5,9 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <style>
+        /* Additional CSS styles */
+        nav {
+            background-color: #F0FFF0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        li {
+            margin: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+            font-size: 20px;
+        }
+    </style>
     {% block head %}{% endblock %}
 </head>
+    
 <body>
+
+    <nav>
+        <ul>
+            <li><a href="/">Task Master</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/connect">Connect</a></li>
+        </ul>
+    </nav>
     {% block body %}{% endblock %}
 </body>
 </html>

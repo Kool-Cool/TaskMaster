@@ -1,7 +1,7 @@
 body, html {
     margin: 0;
     font-family: sans-serif;
-    background-color: lightblue;
+    background-color: soft-light;
 }
 
 .content {
@@ -25,6 +25,7 @@ th {
 td {
     text-align: center;
     padding: 5px;
+    color:black;
 }
 
 .form {

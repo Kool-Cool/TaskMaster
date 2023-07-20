@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Flask Todo App</h1>
+      <p>The Flask Todo App is a simple web application built using Flask and SQLAlchemy. It allows users to manage their tasks by adding, viewing, updating, and deleting them. The app uses an SQLite database to store task information.</p>
+    
+      <h2>Getting Started</h2>
+      <ol>
+        <li><strong>Install Python</strong>: Make sure you have Python installed on your computer. If not, download and install it from <a href="https://www.python.org/">here</a>.</li>
+        <li><strong>Install Dependencies</strong>: Open a terminal or command prompt and install Flask and SQLAlchemy using pip:
+          <pre><code>pip install Flask SQLAlchemy</code></pre>
+        </li>
+        <li><strong>Run the App</strong>: Save the provided code in a Python file (e.g., <code>app.py</code>). In the same directory as your <code>app.py</code> file, run the following command:
+          <pre><code>python app.py</code></pre>
+        </li>
+        <li><strong>Access the App</strong>: Open a web browser and navigate to <a href="http://127.0.0.1:5000/">http://127.0.0.1:5000/</a> to use the app.</li>
+      </ol>
+    
+      <h2>Routes and Functionality</h2>
+      <ul>
+        <li><strong>/ (Homepage)</strong>:
+          <ul>
+            <li><strong>GET</strong>: Renders the list of existing tasks on the homepage, sorted by their creation date.</li>
+            <li><strong>POST</strong>: Handles form submission to add a new task. Users can enter a task and submit the form to add it to the database.</li>
+          </ul>
+        </li>
+        <li><strong>/delete/<int:id></strong>:
+          <ul>
+            <li><strong>GET</strong>: Deletes a specific task with the given <code>id</code> from the database. The <code>id</code> is passed as a parameter in the URL.</li>
+          </ul>
+        </li>
+        <li><strong>/update/<int:id></strong>:
+          <ul>
+            <li><strong>GET</strong>: Renders the page to edit a specific task with the given <code>id</code>. The content of the task can be modified and saved.</li>
+            <li><strong>POST</strong>: Handles form submission to update the task content in the database.</li>
+          </ul>
+        </li>
+      </ul>
+    
+      <h2>Database Model</h2>
+      <p>The app uses a SQLite database to store task information. The database model is defined by the <code>Todo</code> class with the following columns:</p>
+      <ul>
+        <li><code>id</code> (Integer, Primary Key): Unique identifier for each task.</li>
+        <li><code>content</code> (String, 200 characters, Not Null): Content of the task.</li>
+        <li><code>date_created</code> (DateTime, Default: Current UTC Time): Date and time when the task was created.</li>
+      </ul>
+    
+      <h2>Templates</h2>
+      <p>The Flask Todo App uses two templates:</p>
+      <ol>
+        <li><code>index.html</code>: Displays the list of tasks and provides a form to add new tasks.</li>
+        <li><code>update.html</code>: Allows users to edit the content of a specific task.</li>
+      </ol>
+    
+      <h2>Error Handling</h2>
+      <p>The app provides basic error handling for cases when tasks cannot be added, deleted, or updated due to issues with the database.</p>
+    
+      <h2>Conclusion</h2>
+      <p>Congratulations! You now have a simple Todo app built with Flask and SQLAlchemy. Feel free to expand and modify the app to suit your specific requirements or use it as a foundation to learn more about web development with Flask. Happy coding!</p>
+</div>
+{% endblock %}
